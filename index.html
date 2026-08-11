@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questionário de Triagem — Letramento Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">Triagem de Atendimento<span>Nível de Letramento Digital</span></div>
+  <div class="fontctrl" role="group" aria-label="Tamanho do texto">
+    <button type="button" data-size="normal" aria-pressed="true">A</button>
+    <button type="button" data-size="lg" aria-pressed="false">A+</button>
+    <button type="button" data-size="xl" aria-pressed="false">A++</button>
+  </div>
+</div>
+
+<main class="card" id="quizCard">
+
+  <div class="intro" id="introBlock">
+    <h1>Antes de começar, algumas perguntas rápidas</h1>
+    <p>São 5 perguntas simples. Não existe resposta certa ou errada — isso só ajuda a mostrar o atendimento do jeito que funciona melhor pra você.</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span id="progressText">Pergunta 1 de 5</span>
+      <span id="progressPct">20%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <form id="quizForm">
+    <!-- Perguntas geradas via JS -->
+  </form>
+
+  <div class="hint" id="hintText" role="status" aria-live="polite"></div>
+
+  <div class="nav">
+    <button type="button" class="btn btn-secondary" id="btnBack">Voltar</button>
+    <button type="button" class="btn btn-primary" id="btnNext">Próxima pergunta</button>
+  </div>
+
+  <section id="result" aria-live="polite">
+    <div class="score-badge">
+      <span class="score-num" id="scoreNum">0</span>
+      <span class="score-max">/ 14 pontos</span>
+    </div>
+    <span class="level-pill" id="levelPill">Nível</span>
+
+    <div class="gauge-track">
+      <div class="gauge-fill" id="gaugeFill" style="width:0%"></div>
+      <div class="gauge-marker" id="gaugeMarker" style="left:0%"></div>
+    </div>
+
+    <div class="experience-box">
+      <h2 id="expTitle">O que isso significa</h2>
+      <p id="expText"></p>
+    </div>
+
+    <table class="breakdown">
+      <thead>
+        <tr><th>Pergunta</th><th class="pts">Pontos</th></tr>
+      </thead>
+      <tbody id="breakdownBody"></tbody>
+    </table>
+
+    <div class="nav">
+      <button type="button" class="btn btn-secondary" id="btnRestart">Refazer questionário</button>
+      <button type="button" class="btn btn-primary" id="btnContinue">Continuar para o atendimento</button>
+    </div>
+  </section>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
