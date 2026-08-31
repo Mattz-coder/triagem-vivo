@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vivo Fácil — Central de Ajuda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">V</span>
+    <span class="brand-text">vivo <em>fácil</em></span>
+  </div>
+  <div class="fontctrl" role="group" aria-label="Tamanho do texto">
+    <button type="button" data-size="normal" aria-pressed="false">A</button>
+    <button type="button" data-size="lg" aria-pressed="true">A+</button>
+    <button type="button" data-size="xl" aria-pressed="false">A++</button>
+  </div>
+</header>
+
+<main id="app" role="main"></main>
+
+<div class="helpbar">
+  <button type="button" id="btnHelp" class="btn-help">
+    <span class="helpbar-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.94 14.5L2 22l5.68-1.05A10 10 0 1 0 12 2zm5.2 14.2c-.22.62-1.28 1.2-1.77 1.24-.45.05-.9.24-3.02-.63-2.55-1.05-4.2-3.63-4.33-3.8-.13-.18-1.03-1.37-1.03-2.6 0-1.24.65-1.85.88-2.1.22-.24.5-.3.66-.3h.48c.16 0 .37-.03.57.44.22.5.73 1.75.8 1.88.06.13.1.28.02.46-.08.18-.13.28-.25.43-.13.15-.27.34-.38.46-.13.13-.26.28-.11.55.15.27.68 1.12 1.46 1.82 1 .9 1.85 1.18 2.12 1.31.27.13.42.11.58-.07.16-.18.68-.79.86-1.06.18-.27.36-.22.6-.13.25.09 1.57.74 1.84.87.27.13.45.2.52.31.07.11.07.62-.15 1.24z"/></svg>
+    </span>
+    <span>Falar com uma pessoa</span>
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

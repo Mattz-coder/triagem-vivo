@@ -1,0 +1,336 @@
+:root{
+  --purple-900: #2E0854;
+  --purple-700: #5B0BA6;
+  --purple-600: #7A1FD1;
+  --purple-100: #F3EBFC;
+  --magenta-500: #C6007E;
+  --green-600: #1F9254;
+  --ink: #1A1A1A;
+  --ink-soft: #4A4550;
+  --line: #E3D9F0;
+  --bg: #FFFFFF;
+
+  --fs-base: 20px;
+  --fs-label: 1.35rem;
+  --fs-title: 1.9rem;
+  --fs-huge: 2.6rem;
+}
+
+html[data-fontsize="lg"]{ --fs-base: 23px; --fs-label: 1.5rem; --fs-title: 2.15rem; --fs-huge: 2.9rem; }
+html[data-fontsize="xl"]{ --fs-base: 27px; --fs-label: 1.7rem; --fs-title: 2.4rem; --fs-huge: 3.2rem; }
+
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
+  font-size: var(--fs-base);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.45;
+  padding-bottom: 120px; /* espaço pra barra fixa de ajuda */
+}
+
+button{ font-family: inherit; }
+
+/* ===================== TOPO ===================== */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 3px solid var(--purple-100);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 20;
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-mark{
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--purple-700);
+  color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size: 1.5rem;
+  flex-shrink:0;
+}
+.brand-text{
+  font-weight:700;
+  font-size: 1.5rem;
+  color: var(--purple-900);
+}
+.brand-text em{ font-style: normal; color: var(--magenta-500); }
+
+.fontctrl{ display:flex; gap:8px; }
+.fontctrl button{
+  min-width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  border: 2px solid var(--purple-700);
+  background:#fff;
+  color: var(--purple-700);
+  font-weight:700;
+  cursor:pointer;
+}
+.fontctrl button[aria-pressed="true"]{
+  background: var(--purple-700);
+  color:#fff;
+}
+.fontctrl button:focus-visible, button:focus-visible, a:focus-visible{
+  outline: 3px solid var(--magenta-500);
+  outline-offset: 2px;
+}
+
+/* ===================== CONTEÚDO ===================== */
+#app{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 20px 40px;
+}
+
+.screen-title{
+  font-size: var(--fs-title);
+  font-weight:700;
+  color: var(--purple-900);
+  margin: 4px 0 6px;
+}
+.screen-sub{
+  font-size: var(--fs-label);
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+}
+
+.backrow{
+  display:flex;
+  align-items:center;
+  margin-bottom: 18px;
+}
+.btn-back{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:none;
+  border:none;
+  color: var(--purple-700);
+  font-weight:700;
+  font-size: var(--fs-label);
+  cursor:pointer;
+  padding: 10px 6px;
+}
+.btn-back svg{ width:28px; height:28px; }
+
+/* Botão de ouvir (leitura em voz alta) */
+.btn-listen{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background: var(--purple-100);
+  border: 2px solid var(--purple-700);
+  color: var(--purple-900);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight:700;
+  font-size: 1rem;
+  cursor:pointer;
+  margin-bottom: 22px;
+}
+.btn-listen svg{ width:22px; height:22px; }
+
+/* ===================== GRADE DE CARDS GRANDES ===================== */
+.card-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 560px){
+  .card-grid{ grid-template-columns: 1fr; }
+}
+
+.bigcard{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap: 12px;
+  padding: 28px 16px;
+  border: 3px solid var(--purple-100);
+  border-radius: 20px;
+  background:#fff;
+  cursor:pointer;
+  min-height: 168px;
+  transition: border-color .15s, transform .1s;
+}
+.bigcard:hover, .bigcard:focus-visible{
+  border-color: var(--purple-700);
+}
+.bigcard:active{ transform: scale(0.98); }
+
+.bigcard-icon{
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  background: var(--purple-100);
+  color: var(--purple-700);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.bigcard-icon svg{ width: 36px; height:36px; }
+
+.bigcard-label{
+  font-size: var(--fs-label);
+  font-weight:700;
+  color: var(--ink);
+}
+
+/* ===================== BOTÕES DE AÇÃO GRANDES (linha única) ===================== */
+.choice-list{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+}
+.choice-btn{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  width:100%;
+  text-align:left;
+  padding: 20px 22px;
+  border-radius: 16px;
+  border: 3px solid var(--purple-100);
+  background:#fff;
+  font-size: var(--fs-label);
+  font-weight:700;
+  color: var(--ink);
+  cursor:pointer;
+}
+.choice-btn:hover, .choice-btn:focus-visible{ border-color: var(--purple-700); }
+.choice-btn .dot{
+  width:14px; height:14px;
+  border-radius:50%;
+  background: var(--purple-700);
+  flex-shrink:0;
+}
+
+/* ===================== BOTÃO PRIMÁRIO / SECUNDÁRIO ===================== */
+.btn-primary-lg{
+  display:block;
+  width:100%;
+  padding: 20px;
+  border-radius: 16px;
+  border: none;
+  background: var(--purple-700);
+  color:#fff;
+  font-size: var(--fs-label);
+  font-weight:700;
+  cursor:pointer;
+  margin-top: 10px;
+}
+.btn-primary-lg:hover{ background: var(--purple-600); }
+
+.btn-secondary-lg{
+  display:block;
+  width:100%;
+  padding: 18px;
+  border-radius: 16px;
+  border: 3px solid var(--purple-700);
+  background:#fff;
+  color: var(--purple-700);
+  font-size: var(--fs-label);
+  font-weight:700;
+  cursor:pointer;
+  margin-top: 10px;
+}
+
+/* ===================== VALORES GRANDES (conta / plano) ===================== */
+.value-box{
+  background: var(--purple-100);
+  border-radius: 20px;
+  padding: 28px;
+  text-align:center;
+  margin-bottom: 22px;
+}
+.value-box .value{
+  font-size: var(--fs-huge);
+  font-weight:700;
+  color: var(--purple-900);
+  display:block;
+  margin-bottom: 6px;
+}
+.value-box .value-caption{
+  font-size: var(--fs-label);
+  color: var(--ink-soft);
+}
+
+.meter{
+  height: 22px;
+  border-radius: 999px;
+  background: #EDE4F8;
+  overflow:hidden;
+  margin: 8px 0 6px;
+}
+.meter-fill{
+  height:100%;
+  background: var(--purple-700);
+  border-radius: 999px;
+}
+
+/* ===================== SUCESSO ===================== */
+.success-box{
+  text-align:center;
+  padding: 30px 10px;
+}
+.success-icon{
+  width: 92px; height:92px;
+  border-radius:50%;
+  background: var(--green-600);
+  color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  margin: 0 auto 18px;
+}
+.success-icon svg{ width:52px; height:52px; }
+
+/* ===================== FAQ ===================== */
+.faq-item{
+  border: 3px solid var(--purple-100);
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.faq-q{
+  font-weight:700;
+  font-size: var(--fs-label);
+  color: var(--purple-900);
+  margin: 0 0 8px;
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.faq-a{ margin:0; color: var(--ink); }
+
+/* ===================== BARRA FIXA "FALAR COM PESSOA" ===================== */
+.helpbar{
+  position: fixed;
+  bottom:0; left:0; right:0;
+  padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 3px solid var(--purple-100);
+  z-index: 30;
+}
+.btn-help{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 12px;
+  width:100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px;
+  border-radius: 16px;
+  border:none;
+  background: var(--magenta-500);
+  color:#fff;
+  font-size: var(--fs-label);
+  font-weight:700;
+  cursor:pointer;
+}
+.btn-help:hover{ background:#a80069; }
